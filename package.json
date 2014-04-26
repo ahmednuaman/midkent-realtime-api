@@ -4,7 +4,7 @@
   "description": "A real time API for Mid Kent college students",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --recursive -R nyan test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
     "express": "^4.1.0",
     "mongodb": "^1.4.2",
     "socket.io": "^0.9.16"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^1.18.2"
   }
 }
