@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ahmednuaman/midkent-realtime-api/issues"
   },
-  "homepage": "https://github.com/ahmednuaman/midkent-realtime-api"
+  "homepage": "https://github.com/ahmednuaman/midkent-realtime-api",
+  "dependencies": {
+    "express": "^4.1.0",
+    "mongodb": "^1.4.2",
+    "socket.io": "^0.9.16"
+  }
 }
