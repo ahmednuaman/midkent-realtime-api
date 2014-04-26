@@ -1,0 +1,19 @@
+{
+  "name": "midkent-realtime-api",
+  "version": "0.0.0",
+  "description": "A real time API for Mid Kent college students",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ahmednuaman/midkent-realtime-api.git"
+  },
+  "author": "Ahmed Nuaman (ahmed@ahmednuaman.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmednuaman/midkent-realtime-api/issues"
+  },
+  "homepage": "https://github.com/ahmednuaman/midkent-realtime-api"
+}
