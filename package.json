@@ -19,7 +19,8 @@
   "dependencies": {
     "express": "^4.1.0",
     "mongodb": "^1.4.2",
-    "socket.io": "^0.9.16"
+    "socket.io": "^0.9.16",
+    "socket.io-client": "^0.9.16"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",

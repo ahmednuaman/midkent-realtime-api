@@ -1,0 +1,23 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+</head>
+<body>
+  <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+  <script>
+    var socket = io.connect('http://localhost');
+
+    socket.on('messages', function (data) {
+      console.log(data);
+    });
+
+    function sendMessage (message) {
+      socket.emit('add_message', {
+        name: 'Ahmed',
+        message: 'Foo bar ' + message + ' ' + (new Date()).getTime()
+      });
+    }
+  </script>
+</body>
+</html>
