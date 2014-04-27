@@ -4,7 +4,8 @@
   "description": "A real time API for Mid Kent college students",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive -R nyan test"
+    "test": "mocha --recursive -R nyan test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

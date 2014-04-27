@@ -17,7 +17,31 @@ app.get('/', function (req, res) {
 app.use('/', express.static(__dirname + '/'));
 
 mongoClient.connect('mongodb://127.0.0.1:27017/messages_db', function(err, db) {
-  var collection = db.collection('messages_collection');
+  initCollection(db);
+});
+
+function initCollection (db) {
+  db.collectionNames('messages_collection', function (err, names) {
+    var collection;
+
+    if (names.length === 1) {
+      collection = db.collection('messages_collection');
+
+      verifyCollection(db, collection);
+    } else {
+      db.createCollection('messages_collection', {
+        capped: true,
+        size: 102400
+      }, function (err, collection) {
+        console.log('Created collection');
+
+        verifyCollection(db, collection);
+      });
+    }
+  });
+}
+
+function initSockets (collection) {
   io.sockets.on('connection', function (socket) {
     var stream = collection.find({}, {
       tailable: 1,
@@ -35,4 +59,20 @@ mongoClient.connect('mongodb://127.0.0.1:27017/messages_db', function(err, db) {
       });
     });
   });
-});
+}
+
+function verifyCollection (db, collection) {
+  collection.isCapped(function (err, capped) {
+    if (capped) {
+      initSockets(collection);
+    } else {
+      console.log('Not a capped collection');
+
+      db.dropCollection('messages_collection', function (err) {
+        console.log('Dropped collection');
+
+        initCollection(db);
+      });
+    }
+  });
+}
