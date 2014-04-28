@@ -2,9 +2,7 @@
   "name": "midkent-realtime-api",
   "version": "0.0.0",
   "description": "A real time API for Mid Kent college students",
-  "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive -R nyan test",
     "start": "node index.js"
   },
   "repository": {
@@ -18,13 +16,7 @@
   },
   "homepage": "https://github.com/ahmednuaman/midkent-realtime-api",
   "dependencies": {
-    "express": "^4.1.0",
     "mongodb": "^1.4.2",
-    "socket.io": "^0.9.16",
-    "socket.io-client": "^0.9.16"
-  },
-  "devDependencies": {
-    "expect.js": "^0.3.1",
-    "mocha": "^1.18.2"
+    "socket.io": "^0.9.16"
   }
 }

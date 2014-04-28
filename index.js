@@ -1,20 +1,12 @@
-var express = require('express'),
-    mongoClient = require('mongodb').MongoClient,
-    app,
-    io,
-    server;
+var io = require('socket.io').listen(8000),
+    mongoClient = require('mongodb').MongoClient;
 
-app = express();
-server = require('http').createServer(app);
-io = require('socket.io').listen(server);
-
-server.listen(8000);
-
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });
-
-app.use('/', express.static(__dirname + '/'));
 
 mongoClient.connect('mongodb://127.0.0.1:27017/messages_db', function(err, db) {
   initCollection(db);
